@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Instant Quote AI landing page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&amp;family=Public+Sans:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#FFFFFF}
+html{scroll-behavior:smooth}
+a{color:#1D5BD8}a:hover{color:#123F9C}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #7FA8F5;outline-offset:3px;border-radius:8px}
+summary{list-style:none;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+details[open] .faq-plus{transform:rotate(45deg)}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div style="font-family: 'Public Sans', 'Helvetica Neue', Helvetica, sans-serif; color: #0F1E33; background: #FFFFFF; font-size: 17px; line-height: 1.55">
+
+<!-- Nav -->
+<header style="background: #0F1E33; border-bottom: 1px solid #22344F">
+<div style="max-width: 1180px; margin: 0 auto; padding: 16px clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px">
+<a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #FFFFFF">
+<span style="width: 34px; height: 34px; border-radius: 8px; background: #1D5BD8; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19h16"></path><path d="M6 15l4-4 3 3 5-6"></path></svg>
+</span>
+<span style="font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 20px; font-stretch: 90%; letter-spacing: -0.01em">Instant Quote AI</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 22px">
+<a href="#how" style="color: #C9D4E5; text-decoration: none; font-size: 15px; font-weight: 500">How it works</a>
+<a href="#trades" style="color: #C9D4E5; text-decoration: none; font-size: 15px; font-weight: 500">Trades</a>
+<a href="#faq" style="color: #C9D4E5; text-decoration: none; font-size: 15px; font-weight: 500">FAQ</a>
+<a href="#book" style="background: #FFFFFF; color: #0F1E33; text-decoration: none; font-weight: 700; font-size: 15px; padding: 11px 18px; border-radius: 8px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">Book a demo</a>
+</nav>
+</div>
+</header>
+
+<!-- Hero -->
+<section id="top" style="background: #0F1E33; color: #FFFFFF; padding: clamp(48px, 8vw, 96px) 0 clamp(64px, 9vw, 120px)">
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 56px; align-items: center">
+
+<div style="display: flex; flex-direction: column; gap: 24px">
+<p style="margin: 0; display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #C9D4E5; background: #1A2C47; border: 1px solid #2B4166; padding: 7px 12px; border-radius: 999px">For roofers, painters, landscapers, fencers, pavers and cleaners</p>
+<h1 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 82%; font-size: clamp(42px, 6.4vw, 76px); line-height: 0.98; letter-spacing: -0.02em">Send quotes faster. Win jobs before your competitors reply.</h1>
+<p style="margin: 0; font-size: clamp(18px, 1.6vw, 20px); line-height: 1.55; color: #C9D4E5; max-width: 34em">Instant Quote AI lets prospects upload job details and photos, then turns the request into a structured estimate range and follow-up-ready lead.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px">
+<a href="#book" style="background: #1D5BD8; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px; padding: 15px 26px; border-radius: 10px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Book a demo</a>
+<a href="#how" style="background: transparent; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 17px; padding: 15px 24px; border-radius: 10px; border: 1.5px solid #3A5378; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">See how it works</a>
+</div>
+<p style="margin: 0; font-size: 14px; color: #93A4BE">Not a chatbot. Not another dashboard. A quote form that does the first pass for you.</p>
+</div>
+
+<!-- Hero visual -->
+<div style="display: flex; flex-direction: column; align-items: center">
+<div style="width: 100%; max-width: 400px; background: #FFFFFF; color: #0F1E33; border-radius: 22px; border: 8px solid #22344F; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55); overflow: hidden">
+<div style="padding: 18px 20px 14px; border-bottom: 1px solid #E3E8F0; display: flex; align-items: center; justify-content: space-between">
+<div>
+<div style="font-size: 12px; color: #5B6879; font-weight: 600">Ridgeline Roofing</div>
+<div style="font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 700; font-size: 19px">Get a roof estimate</div>
+</div>
+<span style="font-size: 12px; font-weight: 600; color: #1D5BD8; background: #E8EFFC; padding: 4px 9px; border-radius: 999px">Step 2 of 3</span>
+</div>
+<div style="padding: 16px 20px 20px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<div style="border: 1px solid #D5DCE6; border-radius: 10px; padding: 8px 11px">
+<div style="font-size: 11px; color: #5B6879; font-weight: 600">Job type</div>
+<div style="font-size: 14px; font-weight: 600">Full replacement</div>
+</div>
+<div style="border: 1px solid #D5DCE6; border-radius: 10px; padding: 8px 11px">
+<div style="font-size: 11px; color: #5B6879; font-weight: 600">Roof size</div>
+<div style="font-size: 14px; font-weight: 600">About 2,100 sq ft</div>
+</div>
+</div>
+<div style="border: 2px dashed #9DB5DE; background: #F5F8FD; border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #1D5BD8">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3l2-3h6l2 3h3v12H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg>
+4 photos added
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px">
+<div style="aspect-ratio: 1; border-radius: 7px; background: #5C7290; display: flex; align-items: flex-end; justify-content: center; overflow: hidden"><svg width="100%" height="70%" viewBox="0 0 40 28" aria-hidden="true"><path d="M2 18L20 4l18 14v10H2z" fill="#3E4F66"></path><rect x="15" y="17" width="10" height="11" fill="#2A3749"></rect></svg></div>
+<div style="aspect-ratio: 1; border-radius: 7px; background: #6E7F96; display: flex; align-items: flex-end; overflow: hidden"><svg width="100%" height="80%" viewBox="0 0 40 32" aria-hidden="true"><path d="M0 32L40 6v26z" fill="#47586F"></path><path d="M0 32L40 6" stroke="#2F3D50" stroke-width="2"></path></svg></div>
+<div style="aspect-ratio: 1; border-radius: 7px; background: #7D8DA3; display: flex; align-items: center; justify-content: center; overflow: hidden"><svg width="80%" height="80%" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 22h24M4 16h24M4 10h24" stroke="#51627A" stroke-width="3"></path><path d="M12 10l3 6-2 6" stroke="#2F3D50" stroke-width="1.5" fill="none"></path></svg></div>
+<div style="aspect-ratio: 1; border-radius: 7px; background: #E8EFFC; border: 1px solid #C6D6F3; display: flex; align-items: center; justify-content: center; color: #1D5BD8; font-size: 20px; font-weight: 600">+</div>
+</div>
+</div>
+<div style="background: #0F1E33; color: #FFFFFF; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px">
+<div style="font-size: 12px; color: #A9B8CF; font-weight: 600">Your ballpark estimate</div>
+<div style="font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 28px; font-stretch: 88%; letter-spacing: -0.01em">$11,800 to $15,200</div>
+<div aria-hidden="true" style="position: relative; height: 22px">
+<div style="position: absolute; left: 0; right: 0; top: 7px; height: 8px; border-radius: 4px; background: #2B4166"></div>
+<div style="position: absolute; left: 34%; width: 38%; top: 7px; height: 8px; border-radius: 4px; background: #5B8DEF"></div>
+<div style="position: absolute; left: 0; right: 0; top: 17px; height: 5px; background-image: repeating-linear-gradient(90deg, #4A6288 0 1px, transparent 1px 10%)"></div>
+</div>
+<div style="font-size: 12px; color: #A9B8CF; line-height: 1.4">Final price is confirmed after a quick inspection.</div>
+</div>
+<button type="button" style="background: #1D5BD8; color: #FFFFFF; border: 0; border-radius: 10px; font: inherit; font-weight: 700; font-size: 16px; min-height: 48px">Send my request</button>
+</div>
+</div>
+
+<div style="width: min(100%, 340px); margin-top: -34px; margin-left: auto; margin-right: max(0px, calc(50% - 250px)); background: #FFFFFF; color: #0F1E33; border-radius: 14px; padding: 14px 16px; box-shadow: 0 18px 40px -12px rgba(0,0,0,0.5); display: flex; gap: 12px; position: relative">
+<span style="flex: none; width: 38px; height: 38px; border-radius: 10px; background: #FFF1D6; color: #9A5B00; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+</span>
+<div style="display: flex; flex-direction: column; gap: 3px; min-width: 0">
+<div style="font-weight: 700; font-size: 14px">New lead: Dana R., roof replacement</div>
+<div style="font-size: 13px; color: #4A5668">4 photos, about 2,100 sq ft, range $11.8k to $15.2k</div>
+<div style="font-size: 13px; font-weight: 600; color: #1D5BD8">Suggested next step: book an inspection</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Problem -->
+<section style="padding: clamp(64px, 9vw, 112px) 0">
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px 72px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 85%; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.02; letter-spacing: -0.015em">Manual estimates leak revenue.</h2>
+<p style="margin: 0; color: #4A5668; max-width: 30em">Most quote requests show up as a one-line email or a missed call. By the time your team has the details, the customer has already heard back from someone else.</p>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border-top: 1px solid #D5DCE6">
+<li style="display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid #D5DCE6">
+<span style="flex: none; width: 32px; height: 32px; border-radius: 8px; background: #FDECEA; color: #B42318; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+<div><div style="font-weight: 700">Requests come in missing the basics</div><div style="color: #4A5668; font-size: 16px">No size, no photos, no clear scope. Just "how much for a new fence?"</div></div>
+</li>
+<li style="display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid #D5DCE6">
+<span style="flex: none; width: 32px; height: 32px; border-radius: 8px; background: #FDECEA; color: #B42318; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+<div><div style="font-weight: 700">Staff spend hours chasing details</div><div style="color: #4A5668; font-size: 16px">Calls and texts back and forth asking for photos, measurements and what the job actually is.</div></div>
+</li>
+<li style="display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid #D5DCE6">
+<span style="flex: none; width: 32px; height: 32px; border-radius: 8px; background: #FDECEA; color: #B42318; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+<div><div style="font-weight: 700">Quotes take days to go out</div><div style="color: #4A5668; font-size: 16px">Estimates wait until someone has a free evening to write them up.</div></div>
+</li>
+<li style="display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid #D5DCE6">
+<span style="flex: none; width: 32px; height: 32px; border-radius: 8px; background: #FDECEA; color: #B42318; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+<div><div style="font-weight: 700">Faster competitors get the job</div><div style="color: #4A5668; font-size: 16px">The first company to send a number often gets the first real conversation.</div></div>
+</li>
+<li style="display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid #D5DCE6">
+<span style="flex: none; width: 32px; height: 32px; border-radius: 8px; background: #FDECEA; color: #B42318; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></span>
+<div><div style="font-weight: 700">Leads go cold in the inbox</div><div style="color: #4A5668; font-size: 16px">Half-finished requests sit in email and voicemail until nobody remembers to follow up.</div></div>
+</li>
+</ul>
+</div>
+</section>
+
+<!-- Outcomes -->
+<section style="background: #F2F5F9; padding: clamp(64px, 9vw, 112px) 0">
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
+<h2 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 85%; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.02; letter-spacing: -0.015em">A quote request that does the first pass for you.</h2>
+<p style="margin: 0; color: #4A5668">The work your office does before a quote can even start now happens on the form itself.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px">
+<div style="background: #FFFFFF; border: 1px solid #D5DCE6; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 44px; height: 44px; border-radius: 10px; background: #E8EFFC; color: #1D5BD8; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M9 8h6M9 12h6M9 16h3"></path></svg></span>
+<h3 style="margin: 0; font-size: 19px; line-height: 1.25">Captures the right details upfront</h3>
+<p style="margin: 0; color: #4A5668; font-size: 16px">Questions built for your trade, so every request includes size, materials, condition and timing.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D5DCE6; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 44px; height: 44px; border-radius: 10px; background: #E8EFFC; color: #1D5BD8; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3l2-3h6l2 3h3v12H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg></span>
+<h3 style="margin: 0; font-size: 19px; line-height: 1.25">Accepts job photos and files</h3>
+<p style="margin: 0; color: #4A5668; font-size: 16px">Customers snap photos with their phone or attach plans and old quotes in the same step.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D5DCE6; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 44px; height: 44px; border-radius: 10px; background: #E8EFFC; color: #1D5BD8; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17h18"></path><path d="M6 17v-3M10 17v-5M14 17v-3M18 17v-5"></path><path d="M8 8h8"></path></svg></span>
+<h3 style="margin: 0; font-size: 19px; line-height: 1.25">Creates a ballpark estimate range</h3>
+<p style="margin: 0; color: #4A5668; font-size: 16px">Your own pricing rules produce a low and high range. The customer knows what to expect before you call.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D5DCE6; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+<span style="width: 44px; height: 44px; border-radius: 10px; background: #E8EFFC; color: #1D5BD8; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></span>
+<h3 style="margin: 0; font-size: 19px; line-height: 1.25">Sends the owner a clean lead summary</h3>
+<p style="margin: 0; color: #4A5668; font-size: 16px">One email with the scope, photos, range and a suggested next step. Ready to call back.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- How it works -->
+<section id="how" style="padding: clamp(64px, 9vw, 112px) 0">
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); display: flex; flex-direction: column; gap: 44px">
+<h2 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 85%; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.02; letter-spacing: -0.015em">How it works</h2>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px">
+<li style="display: flex; flex-direction: column; gap: 14px; border-top: 4px solid #0F1E33; padding-top: 22px">
+<span style="font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 56px; line-height: 1; color: #1D5BD8">1</span>
+<h3 style="margin: 0; font-size: 21px; line-height: 1.25">Customer submits job details and photos</h3>
+<p style="margin: 0; color: #4A5668; font-size: 16px">They answer a short set of questions for your service and upload photos from their phone. Takes a few minutes.</p>
+</li>
+<li style="display: flex; flex-direction: column; gap: 14px; border-top: 4px solid #0F1E33; padding-top: 22px">
+<span style="font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 56px; line-height: 1; color: #1D5BD8">2</span>
+<h3 style="margin: 0; font-size: 21px; line-height: 1.25">AI organizes the request and generates an estimate range</h3>
+<p style="margin: 0; color: #4A5668; font-size: 16px">It sorts the answers and photos into a clear job summary, then applies your pricing rules to give a ballpark range.</p>
+</li>
+<li style="display: flex; flex-direction: column; gap: 14px; border-top: 4px solid #0F1E33; padding-top: 22px">
+<span style="font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-size: 56px; line-height: 1; color: #1D5BD8">3</span>
+<h3 style="margin: 0; font-size: 21px; line-height: 1.25">You get a qualified lead and take it from there</h3>
+<p style="margin: 0; color: #4A5668; font-size: 16px">Send the final quote or book an inspection. You start the conversation with everything you need already in hand.</p>
+</li>
+</ol>
+</div>
+</section>
+
+<!-- Trades -->
+<section id="trades" style="background: #0F1E33; color: #FFFFFF; padding: clamp(64px, 9vw, 112px) 0">
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); display: flex; flex-direction: column; gap: 44px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 720px">
+<h2 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 85%; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.02; letter-spacing: -0.015em">Set up for the way your trade quotes</h2>
+<p style="margin: 0; color: #C9D4E5">Each version asks for the details you would ask for on the phone. Here is what that looks like for a few trades.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px">
+<div style="background: #17283F; border: 1px solid #2B4166; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-size: 24px; font-weight: 700">Roofing</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Roof photos</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Square footage</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Repair or replace</span></div>
+</div>
+<div style="background: #17283F; border: 1px solid #2B4166; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-size: 24px; font-weight: 700">Painting</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Rooms</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Surfaces</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Condition</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Photos</span></div>
+</div>
+<div style="background: #17283F; border: 1px solid #2B4166; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-size: 24px; font-weight: 700">Landscaping</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Yard scope</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Materials</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Area size</span></div>
+</div>
+<div style="background: #17283F; border: 1px solid #2B4166; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-size: 24px; font-weight: 700">Fencing</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Length</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Material</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Site photos</span></div>
+</div>
+<div style="background: #17283F; border: 1px solid #2B4166; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-size: 24px; font-weight: 700">Cleaning</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Property size</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Service type</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Frequency</span></div>
+</div>
+<div style="background: #17283F; border: 1px solid #2B4166; border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-size: 24px; font-weight: 700">Paving</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Area size</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Damage photos</span><span style="font-size: 14px; background: #22385A; color: #DCE6F5; padding: 5px 11px; border-radius: 999px">Surface type</span></div>
+</div>
+</div>
+<p style="margin: 0; color: #C9D4E5; font-size: 16px">Different trade? If you write estimates by hand today, we can build the questions around how you price.</p>
+</div>
+</section>
+
+<!-- Before / After -->
+<section style="padding: clamp(64px, 9vw, 112px) 0">
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); display: flex; flex-direction: column; gap: 44px">
+<h2 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 85%; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.02; letter-spacing: -0.015em; max-width: 720px">The same enquiry, two different mornings</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 20px">
+
+<div style="background: #F2F5F9; border: 1px solid #D5DCE6; border-radius: 16px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="align-self: flex-start; font-size: 14px; font-weight: 700; color: #B42318; background: #FDECEA; padding: 4px 11px; border-radius: 999px">Before</span>
+<p style="margin: 0; font-size: 20px; font-weight: 600; line-height: 1.35">Quote requests arrive half-empty. Staff chase details. Prospects wait.</p>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #D5DCE6; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 13px; color: #5B6879">From: mike.t@email.com</div>
+<div style="font-size: 16px">"hi how much for a fence in my backyard? thanks"</div>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; font-size: 15px; color: #4A5668">
+<li style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>No length</li>
+<li style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>No material</li>
+<li style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>No photos</li>
+<li style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>No phone number</li>
+</ul>
+</div>
+
+<div style="background: #FFFFFF; border: 2px solid #1D5BD8; border-radius: 16px; padding: clamp(22px, 3vw, 32px); display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="align-self: flex-start; font-size: 14px; font-weight: 700; color: #1D5BD8; background: #E8EFFC; padding: 4px 11px; border-radius: 999px">After</span>
+<p style="margin: 0; font-size: 20px; font-weight: 600; line-height: 1.35">Every enquiry arrives with scope, photos, estimate range, and a next-step recommendation.</p>
+</div>
+<div style="border: 1px solid #D5DCE6; border-radius: 12px; overflow: hidden">
+<div style="background: #0F1E33; color: #FFFFFF; padding: 10px 16px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px; font-size: 14px">
+<span style="font-weight: 700">Mike T., backyard fence</span>
+<span style="color: #A9B8CF">Lead summary</span>
+</div>
+<dl style="margin: 0; padding: 14px 16px; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 16px; font-size: 15px">
+<dt style="color: #5B6879">Scope</dt><dd style="margin: 0; font-weight: 600">About 140 ft, 6 ft privacy, cedar</dd>
+<dt style="color: #5B6879">Photos</dt><dd style="margin: 0; font-weight: 600">5 site photos, old fence removal needed</dd>
+<dt style="color: #5B6879">Range</dt><dd style="margin: 0; font-weight: 600">$6,900 to $8,600</dd>
+<dt style="color: #5B6879">Next step</dt><dd style="margin: 0; font-weight: 600; color: #1D5BD8">Call to book a site visit this week</dd>
+</dl>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- What you get -->
+<section style="background: #F2F5F9; padding: clamp(64px, 9vw, 112px) 0">
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 40px 72px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 85%; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.02; letter-spacing: -0.015em">What your business gets</h2>
+<p style="margin: 0; color: #4A5668; max-width: 30em">We build and set it up for you. You hand over your pricing and the questions you usually ask, and we turn that into a working quote system with your name on it.</p>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; background: #FFFFFF; border: 1px solid #D5DCE6; border-radius: 16px; padding: 8px 24px">
+<li style="display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid #E3E8F0; font-weight: 600"><span style="flex: none; width: 26px; height: 26px; border-radius: 50%; background: #1D5BD8; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Branded quote request page</li>
+<li style="display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid #E3E8F0; font-weight: 600"><span style="flex: none; width: 26px; height: 26px; border-radius: 50%; background: #1D5BD8; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Photo and file upload</li>
+<li style="display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid #E3E8F0; font-weight: 600"><span style="flex: none; width: 26px; height: 26px; border-radius: 50%; background: #1D5BD8; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Estimate range logic based on your pricing</li>
+<li style="display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid #E3E8F0; font-weight: 600"><span style="flex: none; width: 26px; height: 26px; border-radius: 50%; background: #1D5BD8; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Owner notification email</li>
+<li style="display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid #E3E8F0; font-weight: 600"><span style="flex: none; width: 26px; height: 26px; border-radius: 50%; background: #1D5BD8; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Lead database</li>
+<li style="display: flex; gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid #E3E8F0; font-weight: 600"><span style="flex: none; width: 26px; height: 26px; border-radius: 50%; background: #1D5BD8; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Admin view of all requests</li>
+<li style="display: flex; gap: 14px; align-items: center; padding: 14px 0; font-weight: 600"><span style="flex: none; width: 26px; height: 26px; border-radius: 50%; background: #1D5BD8; color: #FFFFFF; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"></path></svg></span>Custom questions for your service type</li>
+</ul>
+</div>
+</section>
+
+<!-- CTA band -->
+<section id="book" style="background: #0F1E33; color: #FFFFFF; padding: clamp(64px, 9vw, 104px) 0">
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 16px; flex: 1 1 520px; min-width: 0">
+<h2 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 82%; font-size: clamp(38px, 5.4vw, 64px); line-height: 0.98; letter-spacing: -0.02em">Stop letting quote requests rot in the inbox.</h2>
+<p style="margin: 0; color: #C9D4E5; font-size: 18px">Built for your service, your pricing logic, and your follow-up process.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="[YOUR BOOKING LINK]" style="background: #1D5BD8; color: #FFFFFF; text-decoration: none; font-weight: 700; font-size: 17px; padding: 15px 28px; border-radius: 10px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Book a demo</a>
+<a href="[YOUR CONTACT LINK]" style="color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 17px; padding: 15px 24px; border-radius: 10px; border: 1.5px solid #3A5378; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Request a custom version</a>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding: clamp(64px, 9vw, 112px) 0">
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px 72px; align-items: start">
+<h2 style="margin: 0; font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; font-stretch: 85%; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.02; letter-spacing: -0.015em">Questions owners ask</h2>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #D5DCE6; grid-column: span 1">
+<details style="border-bottom: 1px solid #D5DCE6">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-weight: 700; font-size: 18px; min-height: 44px">Does this replace final quoting?<span class="faq-plus" style="flex: none; font-size: 26px; font-weight: 400; color: #1D5BD8; transition: transform 0.2s" aria-hidden="true">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A5668">No. The customer gets a ballpark range, and you get a complete request. You still confirm the final price, usually after a site visit or a short call.</p>
+</details>
+<details style="border-bottom: 1px solid #D5DCE6">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-weight: 700; font-size: 18px; min-height: 44px">Can it work for my trade?<span class="faq-plus" style="flex: none; font-size: 26px; font-weight: 400; color: #1D5BD8; transition: transform 0.2s" aria-hidden="true">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A5668">If you price jobs from things like size, materials, condition and photos, yes. We set up the questions and the range logic around how you already quote.</p>
+</details>
+<details style="border-bottom: 1px solid #D5DCE6">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-weight: 700; font-size: 18px; min-height: 44px">Can I customize pricing rules?<span class="faq-plus" style="flex: none; font-size: 26px; font-weight: 400; color: #1D5BD8; transition: transform 0.2s" aria-hidden="true">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A5668">Yes. Your rates, minimums and add-ons decide the range. When your prices change, the ranges change with them.</p>
+</details>
+<details style="border-bottom: 1px solid #D5DCE6">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-weight: 700; font-size: 18px; min-height: 44px">Does it work on mobile?<span class="faq-plus" style="flex: none; font-size: 26px; font-weight: 400; color: #1D5BD8; transition: transform 0.2s" aria-hidden="true">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A5668">Yes. Most people send quote requests from their phone, so the form is built for small screens and lets them upload straight from the camera.</p>
+</details>
+<details style="border-bottom: 1px solid #D5DCE6">
+<summary style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-weight: 700; font-size: 18px; min-height: 44px">What happens after someone submits?<span class="faq-plus" style="flex: none; font-size: 26px; font-weight: 400; color: #1D5BD8; transition: transform 0.2s" aria-hidden="true">+</span></summary>
+<p style="margin: 0 0 20px; color: #4A5668">The customer sees their estimate range and a note that the final price comes after review. You get an email with the full lead summary, and the request is saved in your admin view so it never gets lost.</p>
+</details>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer style="border-top: 1px solid #D5DCE6; padding: 28px 0">
+<div style="max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 40px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14px; color: #5B6879">
+<span style="font-family: 'Archivo', 'Arial Narrow', sans-serif; font-weight: 800; color: #0F1E33">Instant Quote AI</span>
+<span>Estimates shown are ballpark ranges. Final prices are set by each business.</span>
+</div>
+</footer>
+
+</div>
+</body>
+</html>

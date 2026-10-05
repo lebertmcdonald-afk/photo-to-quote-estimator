@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-white text-navy font-sans;
+    font-size: 17px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  a {
+    color: #1d5bd8;
+  }
+  a:hover {
+    color: #123f9c;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible {
+    outline: 3px solid #7fa8f5;
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-container;
+    padding-left: clamp(20px, 5vw, 40px);
+    padding-right: clamp(20px, 5vw, 40px);
+  }
+  .section-y {
+    padding-top: clamp(64px, 9vw, 112px);
+    padding-bottom: clamp(64px, 9vw, 112px);
+  }
+  .h-display {
+    @apply font-display font-extrabold;
+    font-stretch: 85%;
+    font-size: clamp(34px, 4.4vw, 52px);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+  }
+  .h-hero {
+    @apply font-display font-extrabold;
+    font-stretch: 82%;
+    font-size: clamp(42px, 6.4vw, 76px);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+  .h-cta {
+    @apply font-display font-extrabold;
+    font-stretch: 82%;
+    font-size: clamp(38px, 5.4vw, 64px);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-[10px] bg-blue font-bold text-white;
+    font-size: 17px;
+    padding: 15px 26px;
+    min-height: 52px;
+    text-decoration: none;
+  }
+  .btn-primary:hover {
+    @apply bg-blue-hover text-white;
+  }
+  .btn-outline-dark {
+    @apply inline-flex items-center justify-center rounded-[10px] bg-transparent font-semibold text-white;
+    font-size: 17px;
+    padding: 15px 24px;
+    min-height: 52px;
+    border: 1.5px solid #3a5378;
+    text-decoration: none;
+  }
+  .btn-outline-dark:hover {
+    @apply text-white;
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .btn-light {
+    @apply inline-flex items-center rounded-lg bg-white font-bold text-navy;
+    font-size: 15px;
+    padding: 11px 18px;
+    min-height: 44px;
+    text-decoration: none;
+  }
+  .btn-light:hover {
+    @apply text-navy;
+    background: #eef2f8;
+  }
+}
