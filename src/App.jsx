@@ -1,29 +1,15 @@
-import Nav from "./components/Nav.jsx";
-import Hero from "./components/Hero.jsx";
-import Problem from "./components/Problem.jsx";
-import Outcomes from "./components/Outcomes.jsx";
-import HowItWorks from "./components/HowItWorks.jsx";
-import Trades from "./components/Trades.jsx";
-import BeforeAfter from "./components/BeforeAfter.jsx";
-import WhatYouGet from "./components/WhatYouGet.jsx";
-import CtaBand from "./components/CtaBand.jsx";
-import Faq from "./components/Faq.jsx";
-import Footer from "./components/Footer.jsx";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Landing from "./pages/Landing.jsx";
+import Quote from "./pages/Quote.jsx";
 
 export default function App() {
   return (
-    <>
-      <Nav />
-      <Hero />
-      <Problem />
-      <Outcomes />
-      <HowItWorks />
-      <Trades />
-      <BeforeAfter />
-      <WhatYouGet />
-      <CtaBand />
-      <Faq />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/quote" element={<Quote />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { bookingLink } from "../config.js";
 
 export default function Hero() {
@@ -57,6 +58,25 @@ export default function Hero() {
         <div className="flex flex-col items-center">
           <HeroCard />
           <HeroToast />
+          <Link
+            to="/quote"
+            className="mt-6 inline-flex items-center gap-1.5 text-[14px] font-semibold text-navy-ink-3 underline decoration-navy-200 underline-offset-4 hover:text-white hover:decoration-white"
+          >
+            Try the live demo
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>
