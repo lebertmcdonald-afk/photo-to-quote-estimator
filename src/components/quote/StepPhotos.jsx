@@ -1,25 +1,49 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { loadImageFromFile } from "../../lib/resizeImage.js";
 
 const MAX_PHOTOS = 8;
 
 export default function StepPhotos({ photos, setPhotos }) {
   const inputRef = useRef(null);
+  const [note, setNote] = useState("");
 
-  const addFiles = (files) => {
-    const incoming = Array.from(files || []).filter((f) => f.type.startsWith("image/"));
-    const remaining = MAX_PHOTOS - photos.length;
-    const toAdd = incoming.slice(0, Math.max(0, remaining)).map((file) => ({
-      id: `${file.name}-${file.lastModified}-${Math.random().toString(36).slice(2, 8)}`,
-      file,
-      url: URL.createObjectURL(file),
-    }));
-    setPhotos([...photos, ...toAdd]);
+  const addFiles = async (fileList) => {
+    const incoming = Array.from(fileList || []);
+    const remaining = Math.max(0, MAX_PHOTOS - photos.length);
+    const selected = incoming.slice(0, remaining);
+
+    const added = [];
+    let failed = 0;
+
+    for (const file of selected) {
+      try {
+        // Decoding here means an unreadable file is caught now, while the
+        // customer can still pick a different one, rather than at submit.
+        const { url } = await loadImageFromFile(file);
+        added.push({
+          id: `${file.name}-${file.lastModified}-${Math.random().toString(36).slice(2, 8)}`,
+          file,
+          url,
+        });
+      } catch {
+        failed += 1;
+      }
+    }
+
+    if (added.length > 0) setPhotos((prev) => [...prev, ...added]);
+
+    if (failed === 0) setNote("");
+    else if (failed === 1) setNote("One photo couldn't be added. Try a different photo.");
+    else setNote(`${failed} photos couldn't be added. Try different photos.`);
   };
 
   const removePhoto = (id) => {
-    const target = photos.find((p) => p.id === id);
-    if (target) URL.revokeObjectURL(target.url);
-    setPhotos(photos.filter((p) => p.id !== id));
+    setPhotos((prev) => {
+      const target = prev.find((p) => p.id === id);
+      if (target) URL.revokeObjectURL(target.url);
+      return prev.filter((p) => p.id !== id);
+    });
+    setNote("");
   };
 
   const atLimit = photos.length >= MAX_PHOTOS;
@@ -73,15 +97,20 @@ export default function StepPhotos({ photos, setPhotos }) {
         className="hidden"
       />
 
+      {note && (
+        <p
+          role="status"
+          className="rounded-[10px] bg-red-pill-bg px-3 py-2.5 text-[14px] text-red-pill-fg"
+        >
+          {note}
+        </p>
+      )}
+
       {photos.length > 0 && (
         <ul className="m-0 grid list-none grid-cols-4 gap-2 p-0">
           {photos.map((p) => (
             <li key={p.id} className="relative" style={{ aspectRatio: 1 }}>
-              <img
-                src={p.url}
-                alt=""
-                className="h-full w-full rounded-[8px] object-cover"
-              />
+              <img src={p.url} alt="" className="h-full w-full rounded-[8px] object-cover" />
               <button
                 type="button"
                 onClick={() => removePhoto(p.id)}
@@ -107,9 +136,7 @@ export default function StepPhotos({ photos, setPhotos }) {
         </ul>
       )}
 
-      <p className="text-[13px] text-ink-soft">
-        Photos stay on your device for this demo. Nothing is uploaded.
-      </p>
+      <p className="text-[13px] text-ink-soft">Photos are uploaded when you submit.</p>
     </div>
   );
 }

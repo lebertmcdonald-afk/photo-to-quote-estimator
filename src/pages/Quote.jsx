@@ -1,11 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Progress from "../components/quote/Progress.jsx";
 import StepJob from "../components/quote/StepJob.jsx";
 import StepPhotos from "../components/quote/StepPhotos.jsx";
 import StepContact from "../components/quote/StepContact.jsx";
 import Result from "../components/quote/Result.jsx";
-import { estimate } from "../pricing.js";
+import { estimate, fetchPricingRules } from "../pricing.js";
+import { submitQuoteRequest } from "../lib/submitQuoteRequest.js";
+import { businessSlug } from "../config.js";
 
 const EMPTY_FORM = {
   jobType: "",
@@ -46,51 +48,88 @@ export default function Quote() {
   const [form, setForm] = useState(EMPTY_FORM);
   const [photos, setPhotos] = useState([]); // [{id, file, url}]
   const [errors, setErrors] = useState({});
-  const [done, setDone] = useState(false);
+  const [rules, setRules] = useState(null);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState("");
+  const [result, setResult] = useState(null);
 
   const update = (patch) => setForm((f) => ({ ...f, ...patch }));
 
-  // Revoke object URLs on unmount
+  // Load the business's rates once. A failure leaves rules null, which
+  // estimate() reads as "Inspection needed" rather than guessing.
   useEffect(() => {
+    let active = true;
+    fetchPricingRules(businessSlug)
+      .then((r) => {
+        if (active) setRules(r);
+      })
+      .catch(() => {
+        if (active) setRules(null);
+      });
     return () => {
-      photos.forEach((p) => URL.revokeObjectURL(p.url));
+      active = false;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Scroll top on step change
+  // Revoke thumbnail URLs on unmount. Held in a ref so the cleanup sees the
+  // latest list rather than the empty array captured at mount.
+  const photosRef = useRef(photos);
+  photosRef.current = photos;
+  useEffect(() => {
+    return () => photosRef.current.forEach((p) => URL.revokeObjectURL(p.url));
+  }, []);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [step, done]);
-
-  const goNext = () => {
-    const errs = validateStep(step, form);
-    setErrors(errs);
-    if (Object.keys(errs).length > 0) return;
-    if (step < 3) setStep(step + 1);
-    else setDone(true);
-  };
+  }, [step, result]);
 
   const goBack = () => {
     setErrors({});
+    setSaveError("");
     if (step > 1) setStep(step - 1);
   };
 
-  const result = useMemo(
-    () =>
-      done
-        ? estimate({
-            jobType: form.jobType,
-            sqFt: form.sqFt,
-            sqFtUnknown: form.sqFtUnknown,
-          })
-        : null,
-    [done, form.jobType, form.sqFt, form.sqFtUnknown]
-  );
+  const goNext = async () => {
+    const errs = validateStep(step, form);
+    setErrors(errs);
+    if (Object.keys(errs).length > 0) return;
+
+    if (step < 3) {
+      setStep(step + 1);
+      return;
+    }
+
+    setSaving(true);
+    setSaveError("");
+    try {
+      // Generated here so the photo folder and the row share an id without
+      // needing to read the inserted row back.
+      const requestId = crypto.randomUUID();
+      const estimateResult = estimate(
+        { jobType: form.jobType, sqFt: form.sqFt, sqFtUnknown: form.sqFtUnknown },
+        rules
+      );
+
+      await submitQuoteRequest({
+        requestId,
+        businessSlug,
+        form,
+        photos,
+        estimateResult,
+      });
+
+      setResult(estimateResult);
+    } catch {
+      setSaveError("Something went wrong saving your request. Please try again.");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const done = result !== null;
 
   return (
     <div className="min-h-screen bg-navy font-sans text-navy">
-      {/* Thin header */}
       <header className="border-b border-[#22344F]">
         <div className="container-x flex items-center justify-between py-4">
           <Link to="/" className="flex items-center gap-2.5 text-white no-underline">
@@ -126,7 +165,6 @@ export default function Quote() {
         </div>
       </header>
 
-      {/* Card */}
       <main
         className="container-x"
         style={{ paddingTop: "clamp(24px, 5vw, 56px)", paddingBottom: "clamp(48px, 8vw, 96px)" }}
@@ -135,7 +173,6 @@ export default function Quote() {
           className="mx-auto w-full overflow-hidden rounded-[22px] border-[8px] border-navy-500 bg-white text-navy shadow-hero"
           style={{ maxWidth: 520 }}
         >
-          {/* Card header */}
           <div className="flex items-center justify-between border-b border-divider-soft px-5 pt-[18px] pb-[14px]">
             <div>
               <div className="text-xs font-semibold text-ink-soft">Ridgeline Roofing</div>
@@ -152,11 +189,16 @@ export default function Quote() {
             ) : (
               <>
                 {step === 1 && <StepJob form={form} errors={errors} update={update} />}
-                {step === 2 && (
-                  <StepPhotos photos={photos} setPhotos={setPhotos} />
-                )}
-                {step === 3 && (
-                  <StepContact form={form} errors={errors} update={update} />
+                {step === 2 && <StepPhotos photos={photos} setPhotos={setPhotos} />}
+                {step === 3 && <StepContact form={form} errors={errors} update={update} />}
+
+                {saveError && (
+                  <p
+                    role="alert"
+                    className="rounded-[10px] bg-red-pill-bg px-3 py-2.5 text-[14px] text-red-pill-fg"
+                  >
+                    {saveError}
+                  </p>
                 )}
 
                 <div className="mt-2 flex items-center justify-between gap-3">
@@ -164,8 +206,9 @@ export default function Quote() {
                     <button
                       type="button"
                       onClick={goBack}
-                      className="rounded-[10px] border border-border bg-white px-5 font-sans text-[15px] font-semibold text-navy"
-                      style={{ minHeight: 48, cursor: "pointer" }}
+                      disabled={saving}
+                      className="rounded-[10px] border border-border bg-white px-5 font-sans text-[15px] font-semibold text-navy disabled:opacity-50"
+                      style={{ minHeight: 48, cursor: saving ? "not-allowed" : "pointer" }}
                     >
                       Back
                     </button>
@@ -180,21 +223,36 @@ export default function Quote() {
                   <button
                     type="button"
                     onClick={goNext}
-                    className="flex-1 rounded-[10px] border-0 bg-blue font-sans text-base font-bold text-white"
-                    style={{ minHeight: 48, cursor: "pointer" }}
+                    disabled={saving}
+                    aria-busy={saving}
+                    className="flex flex-1 items-center justify-center gap-2 rounded-[10px] border-0 bg-blue font-sans text-base font-bold text-white disabled:opacity-70"
+                    style={{ minHeight: 48, cursor: saving ? "wait" : "pointer" }}
                   >
-                    {step === 3 ? "See my estimate" : "Next"}
+                    {saving && <Spinner />}
+                    {saving ? "Saving" : step === 3 ? "See my estimate" : "Next"}
                   </button>
                 </div>
               </>
             )}
           </div>
         </div>
-
-        <p className="mx-auto mt-5 max-w-[520px] text-center text-[13px] text-navy-ink-2">
-          Demo form for Ridgeline Roofing. Nothing is sent or saved.
-        </p>
       </main>
     </div>
+  );
+}
+
+function Spinner() {
+  return (
+    <svg
+      className="animate-spin"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="3" strokeOpacity="0.3" />
+      <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+    </svg>
   );
 }

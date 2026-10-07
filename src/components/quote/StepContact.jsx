@@ -11,6 +11,7 @@ export default function StepContact({ form, errors, update }) {
         <Label>Name</Label>
         <TextInput
           id="name"
+          maxLength={100}
           value={form.name}
           onChange={(v) => update({ name: v })}
           placeholder="Full name"
@@ -23,6 +24,7 @@ export default function StepContact({ form, errors, update }) {
         <Label>Phone</Label>
         <TextInput
           id="phone"
+          maxLength={30}
           type="tel"
           inputMode="tel"
           value={form.phone}
@@ -37,6 +39,7 @@ export default function StepContact({ form, errors, update }) {
         <Label>Email</Label>
         <TextInput
           id="email"
+          maxLength={200}
           type="email"
           inputMode="email"
           value={form.email}
@@ -51,6 +54,7 @@ export default function StepContact({ form, errors, update }) {
         <Label>Job address</Label>
         <TextInput
           id="address"
+          maxLength={300}
           value={form.address}
           onChange={(v) => update({ address: v })}
           placeholder="Street, city, state"

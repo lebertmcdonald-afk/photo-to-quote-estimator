@@ -49,7 +49,17 @@ export function ChipGroup({ name, value, onChange, options, error }) {
   );
 }
 
-export function TextInput({ id, type = "text", value, onChange, placeholder, error, inputMode, autoComplete }) {
+export function TextInput({
+  id,
+  type = "text",
+  value,
+  onChange,
+  placeholder,
+  error,
+  inputMode,
+  autoComplete,
+  maxLength,
+}) {
   return (
     <div>
       <input
@@ -60,6 +70,7 @@ export function TextInput({ id, type = "text", value, onChange, placeholder, err
         placeholder={placeholder}
         inputMode={inputMode}
         autoComplete={autoComplete}
+        maxLength={maxLength}
         aria-invalid={!!error}
         className="w-full rounded-[10px] border border-border bg-white px-3.5 text-[16px] text-navy outline-none focus:border-blue"
         style={{ minHeight: 48 }}
