@@ -1,8 +1,10 @@
 export default function PreviewHeader({ businessName, phone, phoneHref }) {
   return (
     <header className="sticky top-0 z-50 border-b border-preview-line bg-preview-bg/85 backdrop-blur-md backdrop-saturate-150">
-      <div className="preview-wrap flex h-[74px] items-center justify-between gap-4">
-        <div className="flex items-center gap-[11px] text-[17px] font-extrabold tracking-[-0.4px] text-preview-ink sm:text-[21px]">
+      <div className="preview-wrap flex min-h-[74px] items-center justify-between gap-3 py-3 sm:gap-4">
+        {/* min-w-0 so a long name gives way to the call button instead of
+            pushing it off the side of a phone screen. */}
+        <div className="flex min-w-0 items-center gap-[11px] text-[17px] font-extrabold tracking-[-0.4px] text-preview-ink sm:text-[21px]">
           <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-[10px] bg-preview-brand text-[#06120C]">
             <svg
               width="20"
@@ -19,7 +21,7 @@ export default function PreviewHeader({ businessName, phone, phoneHref }) {
               <path d="M5 10v9h14v-9" />
             </svg>
           </span>
-          <span className="truncate">{businessName}</span>
+          <span className="line-clamp-2 min-w-0 break-words leading-tight">{businessName}</span>
         </div>
 
         {phone && (

@@ -27,13 +27,15 @@ export default function PreviewReviews({ reviews }) {
               <div className="mb-3.5">
                 <Stars count={r.stars} />
               </div>
-              <p className="mb-5 text-[15.5px] text-[#D3DBD6]">{r.text}</p>
+              {/* Review text is whatever someone typed into Google, so long
+                  words and pasted links have to break rather than overflow. */}
+              <p className="mb-5 break-words text-[15.5px] text-[#D3DBD6]">{r.text}</p>
               <div className="flex items-center gap-3">
                 <span className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full bg-preview-brand/[0.18] font-bold text-preview-brand">
                   {(r.first_name || "?").trim().charAt(0).toUpperCase()}
                 </span>
-                <div>
-                  <div className="text-[15px] font-bold leading-[1.1] text-preview-ink">
+                <div className="min-w-0">
+                  <div className="break-words text-[15px] font-bold leading-[1.1] text-preview-ink">
                     {r.first_name}
                   </div>
                   <div className="text-[12.5px] text-preview-faint">via Google</div>
