@@ -1,7 +1,30 @@
 import { Link } from "react-router-dom";
 import { formatRange } from "../../pricing.js";
 
-export default function Result({ result, form, photoCount }) {
+// Pexels, free commercial licence, no attribution required. One finished roof
+// per material. No people, logos or brand names in any of them.
+const AFTER_PHOTOS = {
+  asphalt: { id: 534228, alt: "A house with a new asphalt shingle roof" },
+  metal: { id: 11767927, alt: "A house with a dark standing seam metal roof" },
+  tile: { id: 4906292, alt: "A house with a terracotta tile roof" },
+  flat: { id: 7598378, alt: "A modern house with a flat roof" },
+  unsure: { id: 209315, alt: "A house with a clean new roof" },
+};
+
+const pexelsUrl = (id) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=600`;
+
+export default function Result({
+  result,
+  form,
+  photoCount,
+  firstPhotoUrl,
+  businessName = "Ridgeline Roofing",
+  embedded = false,
+}) {
+  const firstName = form.name ? titleCaseName(form.name).split(" ")[0] : "";
+  const after = AFTER_PHOTOS[form.material] || AFTER_PHOTOS.unsure;
+
   return (
     <div className="flex flex-col gap-5">
       {/* Dark estimate panel */}
@@ -28,9 +51,49 @@ export default function Result({ result, form, photoCount }) {
       </div>
 
       <p className="text-[16px] font-semibold text-navy">
-        Thanks{form.name ? `, ${titleCaseName(form.name).split(" ")[0]}` : ""}. Ridgeline Roofing
-        will reach out soon.
+        {embedded ? (
+          <>
+            Thanks{firstName ? `, ${firstName}` : ""}. In the live version, {businessName} gets this
+            request instantly.
+          </>
+        ) : (
+          <>
+            Thanks{firstName ? `, ${firstName}` : ""}. {businessName} will reach out soon.
+          </>
+        )}
       </p>
+
+      {/* Before and after. Preview pages only, where it sells the idea. */}
+      {embedded && (
+        <div className={firstPhotoUrl ? "grid gap-3 sm:grid-cols-2" : ""}>
+          {firstPhotoUrl && (
+            <figure className="m-0">
+              <figcaption className="mb-1.5 text-[13px] font-semibold text-ink-soft">
+                Your roof today
+              </figcaption>
+              <img
+                src={firstPhotoUrl}
+                alt="The roof you photographed"
+                className="aspect-[4/3] w-full rounded-xl border border-border object-cover"
+              />
+            </figure>
+          )}
+          <figure className="m-0">
+            <figcaption className="mb-1.5 text-[13px] font-semibold text-ink-soft">
+              What a new roof can look like
+            </figcaption>
+            <img
+              src={pexelsUrl(after.id)}
+              alt={after.alt}
+              loading="lazy"
+              className="aspect-[4/3] w-full rounded-xl border border-border object-cover"
+            />
+            <p className="mt-1.5 text-[12px] leading-snug text-ink-soft">
+              Example photo, not this job. On your live site, this shows your own finished work.
+            </p>
+          </figure>
+        </div>
+      )}
 
       {/* Request recap */}
       <div className="overflow-hidden rounded-xl border border-border">
@@ -62,13 +125,15 @@ export default function Result({ result, form, photoCount }) {
         </dl>
       </div>
 
-      <Link
-        to="/"
-        className="rounded-[10px] bg-blue px-5 text-center font-bold text-white no-underline"
-        style={{ minHeight: 48, lineHeight: "48px" }}
-      >
-        Back to Instant Quote AI
-      </Link>
+      {!embedded && (
+        <Link
+          to="/"
+          className="rounded-[10px] bg-blue px-5 text-center font-bold text-white no-underline"
+          style={{ minHeight: 48, lineHeight: "48px" }}
+        >
+          Back to Instant Quote AI
+        </Link>
+      )}
     </div>
   );
 }

@@ -32,10 +32,26 @@ export default {
         "amber-pill-fg": "#9A5B00",
         "divider-soft": "#E3E8F0",
         "ink-soft": "#5B6879",
+        // Roofer preview pages (/p/:slug) only. These come from the old
+        // site template and are not Instant Quote AI brand colors.
+        preview: {
+          bg: "#0A0D0C",
+          surface: "#141A18",
+          surface2: "#1B221F",
+          ink: "#F3F7F4",
+          muted: "#9AA8A1",
+          faint: "#6F7D76",
+          brand: "#2DBE7E",
+          "brand-dark": "#1F9A64",
+          gold: "#F1B24A",
+          line: "rgba(255,255,255,0.09)",
+          "line-2": "rgba(255,255,255,0.14)",
+        },
       },
       fontFamily: {
         display: ["Archivo", "Arial Narrow", "sans-serif"],
         sans: ["Public Sans", "Helvetica Neue", "Helvetica", "sans-serif"],
+        inter: ["Inter", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
       },
       maxWidth: {
         container: "1180px",

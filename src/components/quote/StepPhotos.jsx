@@ -3,7 +3,7 @@ import { loadImageFromFile } from "../../lib/resizeImage.js";
 
 const MAX_PHOTOS = 8;
 
-export default function StepPhotos({ photos, setPhotos }) {
+export default function StepPhotos({ photos, setPhotos, businessName = "Ridgeline Roofing" }) {
   const inputRef = useRef(null);
   const [note, setNote] = useState("");
 
@@ -52,7 +52,7 @@ export default function StepPhotos({ photos, setPhotos }) {
     <div className="flex flex-col gap-4">
       <div>
         <p className="text-[15px] text-muted">
-          Add photos of the roof so Ridgeline Roofing can see the job. Up to {MAX_PHOTOS} photos.
+          Add photos of the roof so {businessName} can see the job. Up to {MAX_PHOTOS} photos.
         </p>
       </div>
 

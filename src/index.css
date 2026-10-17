@@ -3,6 +3,20 @@
 @tailwind utilities;
 
 @layer base {
+  /* Accent for the quote card. Blue everywhere by default. The roofer
+     preview pages override it so the card picks up the site's green. */
+  :root {
+    --quote-accent: #1d5bd8;
+    --quote-accent-ink: #ffffff;
+    --quote-accent-soft: #e8effc;
+    --quote-accent-strong: #1d5bd8;
+  }
+  .preview-site {
+    --quote-accent: #2dbe7e;
+    --quote-accent-ink: #06120c;
+    --quote-accent-soft: #e4f6ee;
+    --quote-accent-strong: #15724b;
+  }
   html {
     scroll-behavior: smooth;
   }
@@ -95,5 +109,33 @@
   .btn-light:hover {
     @apply text-navy;
     background: #eef2f8;
+  }
+
+  /* Roofer preview pages (/p/:slug). The template they come from colors its
+     links by context, so undo the site wide blue link color inside them. */
+  .preview-site a {
+    color: inherit;
+  }
+  .preview-wrap {
+    @apply mx-auto w-full;
+    max-width: 1160px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@keyframes preview-slowzoom {
+  to {
+    transform: scale(1);
+  }
+}
+.preview-zoom {
+  transform: scale(1.04);
+  animation: preview-slowzoom 18s ease-out forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .preview-zoom {
+    transform: none;
+    animation: none;
   }
 }
