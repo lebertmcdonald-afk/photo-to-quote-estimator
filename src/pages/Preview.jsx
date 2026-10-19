@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { previewSupabase } from "../lib/previewSupabase.js";
+import { withoutLegalEnding } from "../lib/businessName.js";
 import PreviewBanner from "../components/preview/PreviewBanner.jsx";
 import PreviewHeader from "../components/preview/PreviewHeader.jsx";
 import PreviewHero from "../components/preview/PreviewHero.jsx";
@@ -108,10 +109,15 @@ export default function Preview() {
     phoneHref,
   };
 
+  // What the page calls them. The legal name stays on the quote request itself,
+  // which is a record of who the job is for, so only the parts of the page a
+  // visitor reads use the shorter one.
+  const displayName = withoutLegalEnding(business.business_name);
+
   return (
     <div className="preview-site min-h-screen bg-preview-bg font-inter text-preview-ink antialiased">
-      <PreviewBanner businessName={shared.businessName} />
-      <PreviewHeader {...shared} />
+      <PreviewBanner businessName={displayName} />
+      <PreviewHeader {...shared} businessName={displayName} />
       <PreviewHero
         {...shared}
         rating={business.google_rating}
@@ -120,7 +126,7 @@ export default function Preview() {
       <PreviewServices city={shared.city} />
       {reviews.length > 0 && <PreviewReviews reviews={reviews} />}
       <PreviewQuote {...shared} />
-      <PreviewFooter {...shared} />
+      <PreviewFooter {...shared} businessName={displayName} />
     </div>
   );
 }
